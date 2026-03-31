@@ -29,28 +29,24 @@ function nextRound() {
     let idxTeam2 = 0;
     for (let i = 0; i < team1.length + team2.length; i++) {
         let unitTeam1 = team1[idxTeam1++]
-        let r = Math.floor(Math.random() * team2.length);
-        let team2Random = team2[r];
-        if (unitTeam1 && team2Random) {
-            unitTeam1.doDamage(team2Random)
-            if (!team2[r].isAlive()) {
-                console.log('Im dead')
-                console.log({team2Random})
-                team2.splice(r, 1);
-            }
+        if (unitTeam1 && team2) {
+            unitTeam1.takeATurn(team1, team2)
+
+            team2.filter(value => !value.isAlive()).forEach(value => {
+                let indexToRemove = team2.indexOf(value);
+                team2.splice(indexToRemove, 1)
+            })
         }
 
 
         let unitTeam2 = team2[idxTeam2++]
-        r = Math.floor(Math.random() * team1.length);
-        let team1Random = team1[r];
-        if (unitTeam2 && team1Random) {
-            unitTeam2.doDamage(team1Random)
-            if (!team1[r].isAlive()) {
-                console.log('Im dead')
-                console.log({team1Random})
-                team1.splice(r, 1);
-            }
+        if (unitTeam2 && team1) {
+            unitTeam2.takeATurn(team2, team1)
+
+            team1.filter(value => !value.isAlive()).forEach(value => {
+                let indexToRemove = team1.indexOf(value);
+                team1.splice(indexToRemove, 1)
+            })
         }
     }
 }

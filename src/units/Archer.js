@@ -12,6 +12,7 @@ export default class Archer extends Unit {
         let damage = this.damage
         if (Math.random() < this.critChance) {
             damage = damage * this.critDamageFactor
+            console.log("CRIT!!")
         }
 
         enemy.takeDamage(damage)
