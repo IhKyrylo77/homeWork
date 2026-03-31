@@ -32,10 +32,8 @@ function nextRound() {
         let r = Math.floor(Math.random() * team2.length);
         let team2Random = team2[r];
         if (unitTeam1 && team2Random) {
-            team2Random.hp = team2Random.hp - unitTeam1.damage;
-            // console.log(`Team 1 Unit ${idxTeam1} hit Team 2 Unit ${r}`)
-            // console.log({unitTeam1, team2Random})
-            if (team2[r].hp <= 0) {
+            unitTeam1.doDamage(team2Random)
+            if (!team2[r].isAlive()) {
                 console.log('Im dead')
                 console.log({team2Random})
                 team2.splice(r, 1);
@@ -47,10 +45,8 @@ function nextRound() {
         r = Math.floor(Math.random() * team1.length);
         let team1Random = team1[r];
         if (unitTeam2 && team1Random) {
-            team1Random.hp = team1Random.hp - unitTeam2.damage;
-            // console.log(`Team 2 Unit ${idxTeam2} hit Team 1 Unit ${r}`)
-            // console.log({unitTeam2, team1Random})
-            if (team1[r].hp <= 0) {
+            unitTeam2.doDamage(team1Random)
+            if (!team1[r].isAlive()) {
                 console.log('Im dead')
                 console.log({team1Random})
                 team1.splice(r, 1);
