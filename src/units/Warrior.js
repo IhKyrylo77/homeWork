@@ -1,4 +1,4 @@
-import Unit from "./unit.js";
+import Unit from "./Unit.js";
 
 export default class Warrior extends Unit {
     constructor() {
