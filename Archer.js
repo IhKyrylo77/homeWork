@@ -1,4 +1,4 @@
-import Unit from "./index.js";
+import Unit from "./unit.js";
 
 export default class Archer extends Unit {
     constructor() {

@@ -29,24 +29,45 @@ for (let i = 0; i < 10; i++) {
 // MAIN GAME CYCLE
 {
     let i = 0;
-
+    let turn = 1;
 
     while (team1.length && team2.length) {
 
         if (turn === 1) {
-
             let attacker = team1[i % team1.length];
             let r = Math.floor(Math.random() * team2.length);
 
-            team2[r].hp -= attacker.damage;
+            let damage = attacker.damage;
+
+            if (Math.random() < attacker.critChance) {
+                damage *= attacker.critDamage;
+            }
+
+            damage -= team2[r].armor;
+            if (damage < 0) damage = 0;
+
+            team2[r].hp -= damage;
 
             if (team2[r].hp <= 0) {
                 team2.splice(r, 1);
             }
 
             turn = 2;
+
         } else {
-            r].hp -= attacker.damage;
+            let attacker = team2[i % team2.length];
+            let r = Math.floor(Math.random() * team1.length);
+
+            let damage = attacker.damage;
+
+            if (Math.random() < attacker.critChance) {
+                damage *= attacker.critDamage;
+            }
+
+            damage -= team1[r].armor;
+            if (damage < 0) damage = 0;
+
+            team1[r].hp -= damage;
 
             if (team1[r].hp <= 0) {
                 team1.splice(r, 1);
@@ -55,6 +76,11 @@ for (let i = 0; i < 10; i++) {
             turn = 1;
             i++;
         }
+    }
+}
+
+
+
 
 
 
