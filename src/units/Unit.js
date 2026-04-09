@@ -1,10 +1,11 @@
 export default class Unit {
     ultimateProgress = 0
 
-    constructor(type, damage, hp) {
+    constructor(type, damage, hp,armor) {
         this.type = type
         this.damage = damage
         this.hp = hp
+        this.armor = armor
     }
 
     isAlive() {
@@ -26,7 +27,17 @@ export default class Unit {
     }
 
     takeDamage(damage) {
-        this.hp = this.hp - damage
+
+        damage = damage - this.armor
+
+       if (damage > 0)  {
+           this.hp = this.hp - damage
+       }
+
+
+
+
+
     }
 
     getRandomMember(members) {

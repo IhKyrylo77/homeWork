@@ -2,8 +2,9 @@ import Unit from "./Unit.js";
 
 export default class Warrior extends Unit {
     immunityCount = 0
+
     constructor() {
-        super("warrior", 10, 150);
+        super("warrior", 10, 150,5);
     }
 
     takeDamage(damage) {

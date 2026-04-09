@@ -5,7 +5,7 @@ export default class Archer extends Unit {
     critDamageFactor = 2
 
     constructor() {
-        super("archer", 15, 100);
+        super("archer", 15, 100,3);
     }
 
     doDamage(enemy) {
