@@ -1,0 +1,36 @@
+.unit-card {
+    height: 120px;
+    width: 90px;
+    background: linear-gradient(to bottom, #465e55, green);
+    border-radius: 5px;
+}
+
+.unit-card-type {
+    text-align: center;
+    padding-top: 5px;
+}
+
+.unit-card-state {
+    background-color: grey;
+    margin-top: 2px;
+    width: 100%;
+    display: table;
+}
+
+.unit-card-state div {
+    display: table-cell;
+    text-align: center;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 45%;
+    width: 50%;
+}
+
+.unit-card-general-info {
+    background: linear-gradient(to bottom, grey, #7a918c);
+    border-radius: 2px;
+    margin: 10%;
+    width: 80%;
+    height: 55%;
+    font-size: 60%;
+}
